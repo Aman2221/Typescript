@@ -1,3 +1,4 @@
+"use strict";
 //Main Aim of TypeScript :- Less number of errors 
 // const inputs = document.querySelectorAll('input');
 // inputs.forEach(input => {
@@ -30,8 +31,53 @@ var useAge;
 var NameArray = [];
 var mix = [];
 mix.push('Aman', 3, true);
-console.log(mix);
+// console.log(mix);
 //objects : 
 var obj;
 obj = { Obj_name: 'Aman', Obj_age: 12, valid: true };
-console.log(obj);
+// console.log(obj);
+//any : any allows you to assign any type of data
+var year;
+year = 20;
+year = 'twenty';
+year = true;
+var mixAny = [];
+mixAny.push('Aman', 1, true);
+var mixAnyObj;
+//Function
+var greet;
+greet = function () {
+    console.log("Hello");
+};
+// const add = (a:number, b:number, c?:number|string) => { //c is optional parameter
+//     console.log(a+b);
+// }
+// add(3,5);
+//use of void in typescript (no return value) undefined
+var add = function (a, b, c) {
+    if (c === void 0) { c = 10; }
+    console.log(a + b);
+};
+add(3, 5);
+var minus = function (a, b) {
+    return a + b;
+};
+var result = minus(10, 20);
+var Variable;
+Variable = 'Aman';
+Variable = 1;
+Variable = true;
+var gree;
+gree = function (name, email) {
+    console.log("I'm " + name + " and Email is : " + email);
+};
+gree('Aman', 'As@.com');
+var calc;
+calc = function (numOne, numTwo) {
+    if (numOne == numTwo) {
+        return numTwo + numOne;
+    }
+    else {
+        return numOne - numTwo;
+    }
+};
