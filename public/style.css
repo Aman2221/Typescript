@@ -89,3 +89,19 @@ body{
     position: relative;
     top: 4.5px;
   }
+
+  @media screen and (max-width : 480px){
+    .wrapper{
+      max-width: 450px;
+      display: flex;
+      width: 100%;
+    }
+    button{
+      margin-top: 20px;
+    }
+    footer{
+      background: #eee;
+      padding: 60px;
+      margin-top: 0px;
+    }
+  }
