@@ -1,5 +1,5 @@
 // import {Invoice} from "./Invoice.js";
-// //Main Aim of TypeScript :- Less number of errors 
+// //Main Aim of TypeScript :- clean code with Less number of errors 
 // // const inputs = document.querySelectorAll('input');
 // // inputs.forEach(input => {
 // //     console.log(input);
@@ -122,11 +122,22 @@ var Invoice = /** @class */ (function () {
     ;
     return Invoice;
 }());
+var Payment = /** @class */ (function () {
+    function Payment(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
+    }
+    Payment.prototype.format = function () {
+        return "$(this.client) owes Rs.$(this.amount) for $(this.details)";
+    };
+    ;
+    return Payment;
+}());
 var ineOne = new Invoice('Aman', 'Website', 200);
 var ineTwo = new Invoice('Abhi', 'WebApp', 300);
 var Invoices = [];
 Invoices.push(ineOne, ineTwo); //only objects can be pushed
-console.log(Invoices);
 var form = document.querySelector('.new-item-form');
 var type = document.querySelector('#type');
 var toform = document.querySelector('#tofrom');
@@ -135,4 +146,81 @@ var amount = document.querySelector('#amount');
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     console.log(type.value, toform.value, detail.value, amount.value);
+    var List = document.querySelector('#work');
+    var li = document.createElement('li');
+    var h2 = document.createElement('h2');
+    var h4 = document.createElement('h4');
+    var h5 = document.createElement('h5');
+    var amt = document.createElement('h6');
+    h2.innerText = type.value;
+    h4.innerText = toform.value;
+    h5.innerText = detail.value;
+    amt.innerText = amount.value;
+    li.append(h2);
+    li.append(h4);
+    li.append(h5);
+    li.append(amt);
+    List === null || List === void 0 ? void 0 : List.append(li);
 });
+var me = {
+    name: 'Amna',
+    age: 20,
+    speak: function (a) {
+        console.log('Yes !');
+    },
+    spend: function (a) {
+        return a;
+    }
+};
+//  let doc : any ;
+//  if(type.value === 'invoice'){
+//     doc = new Invoice(toform.value , detail.value , amount.value);
+//     console.log(doc);  
+//  }
+//  else{
+//     doc = new Payment(toform.value , detail.value , amount.value);
+//     console.log(doc);
+// }
+var ListTemplate = /** @class */ (function () {
+    function ListTemplate(container) {
+        this.container = container;
+    }
+    ListTemplate.prototype.render = function (item, heading, pos) {
+        var List = document.querySelector('#work');
+        var li = document.createElement('li');
+        var h4 = document.createElement('h4');
+        h4.innerText = heading;
+        li.append(h4);
+        List === null || List === void 0 ? void 0 : List.append(li);
+        var p = document.createElement('p');
+        p.innerText = item;
+        li.append(p);
+        List === null || List === void 0 ? void 0 : List.append(li);
+        if (pos === 'start') {
+            this.container.prepend(li);
+        }
+        else {
+            this.container.append(li);
+        }
+    };
+    return ListTemplate;
+}());
+var gen = {
+    name: 'Aman',
+    data: 20,
+    add: 'Kolshet'
+};
+// console.log(gen);
+var days;
+(function (days) {
+    days[days["Mon"] = 0] = "Mon";
+    days[days["Tues"] = 1] = "Tues";
+})(days || (days = {}));
+;
+var obj = {
+    dayOne: days.Mon
+};
+console.log(obj.dayOne);
+// Tupple
+var tup = ['Aman', 1, 'true'];
+tup[0] = 'Aman';

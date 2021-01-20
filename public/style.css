@@ -89,6 +89,43 @@ body{
     position: relative;
     top: 4.5px;
   }
+  ul{
+    line-height: 8px;
+    font-weight: 400;
+    border: none;
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+  }
+  ul li{
+    padding-left: 20px;
+    padding-top: 7px;
+  }
+  ul li h2{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: red;
+  }
+  ul li h2{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: red;
+    font-size: 24px;
+  } 
+  ul li h4{
+    letter-spacing: 1.5px;
+    color: #fff;
+    font-size: 20px;
+  }
+  ul li h5{
+    letter-spacing: 1.2px;
+    color: #fff;
+    font-size: 16px;
+  }
+  ul li h6{
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 14px;
+  }
 
   @media screen and (max-width : 480px){
     .wrapper{

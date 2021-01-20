@@ -1,5 +1,5 @@
 // import {Invoice} from "./Invoice.js";
-// //Main Aim of TypeScript :- Less number of errors 
+// //Main Aim of TypeScript :- clean code with Less number of errors 
 
 // // const inputs = document.querySelectorAll('input');
 // // inputs.forEach(input => {
@@ -140,13 +140,21 @@ class Invoice {
         return `$(this.client) owes Rs.$(this.amount) for $(this.details)`
     };
 }
-
+class Payment {
+    constructor (
+        readonly client : string,
+        private details : string,
+        public amount : number,
+    ){}
+    format() {
+        return `$(this.client) owes Rs.$(this.amount) for $(this.details)`
+    };
+}
  const ineOne = new Invoice('Aman','Website', 200);
  const ineTwo = new Invoice('Abhi', 'WebApp', 300);
   
  let Invoices : Invoice[] = [];
  Invoices.push(ineOne,ineTwo);  //only objects can be pushed
- console.log(Invoices);
  
 
  
@@ -165,4 +173,107 @@ class Invoice {
          detail.value,
          amount.value,
          );
+         const List = document.querySelector('#work');
+         const li = document.createElement('li');
+         const h2 = document.createElement('h2');
+         const h4 = document.createElement('h4');
+         const h5 = document.createElement('h5');
+         const amt = document.createElement('h6');
+         h2.innerText = type.value;
+         h4.innerText = toform.value;
+         h5.innerText = detail.value;
+         amt.innerText = amount.value;
+         li.append(h2);
+         li.append(h4);
+         li.append(h5);
+         li.append(amt);
+         List?.append(li);
  })
+
+ //interface in Typescript
+
+ interface IsPerson {
+     name : string;
+     age : number;
+     speak(a:string) : void;
+     spend(a:number) : number;
+ }
+
+ const me : IsPerson = {
+     name : 'Amna',
+     age : 20,
+     speak(a: 'Yes'){
+         console.log('Yes !')
+     },
+     spend(a: 20) : number{
+        return a;
+     }
+ }
+//  let doc : any ;
+//  if(type.value === 'invoice'){
+//     doc = new Invoice(toform.value , detail.value , amount.value);
+//     console.log(doc);  
+//  }
+//  else{
+//     doc = new Payment(toform.value , detail.value , amount.value);
+//     console.log(doc);
+// }
+
+ class ListTemplate {
+     constructor(
+         private container : HTMLUListElement){}
+         render(item : string, heading : string, pos : 'start' | 'end'){
+             const List = document.querySelector('#work');
+             const li = document.createElement('li');
+
+             const h4 = document.createElement('h4');
+
+             h4.innerText = heading;
+             li.append(h4);
+             List?.append(li);
+
+             const p = document.createElement('p');
+             p.innerText = item;
+             li.append(p);
+             List?.append(li);
+
+             if(pos === 'start'){
+                 this.container.prepend(li);
+             }
+             else{
+                 this.container.append(li);
+             }
+         }
+ }
+
+    // const p = document.createElement('p');
+    // p.innerText = item;
+    // li.append(p);
+    // List?.append(li);
+//Genrics :-
+
+interface Resource<T>{
+    name : string;
+    data : number;
+    add : T;
+}
+
+let gen : Resource<string> = {
+    name : 'Aman',
+    data : 20,
+    add : 'Kolshet'
+}
+
+// console.log(gen);
+
+enum days{'Mon','Tues'};
+
+let obj = {
+    dayOne : days.Mon, 
+}
+console.log(obj.dayOne);
+
+// Tupple
+
+let tup : [string | number | boolean] = ['Aman'];
+tup[0] = 'Aman';
