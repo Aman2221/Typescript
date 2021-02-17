@@ -220,7 +220,6 @@ var days;
 var obj = {
     dayOne: days.Mon
 };
-console.log(obj.dayOne);
 // Tupple
 var tup = ['Aman', 1, 'true'];
 tup[0] = 'Aman';
